@@ -14,17 +14,30 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+        }
+        release {
+//            storeFile file("debug.keystore")
+//            storeFile file("ayubopro.jks")
+//            storePassword "AuB0!@Raw"
+//            keyAlias "ayubopro_key"
+//            keyPassword "AuB0!@Raw"
+        }
+    }
+
     buildTypes {
-        buildTypes {
-            debug {
-                minifyEnabled false
-                signingConfig signingConfigs.debug
-            }
-            release {
-                minifyEnabled false
-                signingConfig signingConfigs.release
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
